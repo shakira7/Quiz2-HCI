@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolatelone - Online Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+
+        .browser-bar {
+            background: #e0e0e0;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: white;
+            padding: 40px 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
+        .info-section {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .info-section h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .info-section p {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .search-box {
+            padding: 0 20px;
+        }
+
+        .search-box h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .search-input {
+            padding: 10px 15px;
+            width: 280px;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2980b9;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 60px;
+        }
+
+        .table-of-contents {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .table-of-contents p {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .category-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 40px;
+            border: 2px solid #bdc3c7;
+            background: white;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e0e0e0 25%, #f0f0f0 25%, #f0f0f0 50%, #e0e0e0 50%, #e0e0e0 75%, #f0f0f0 75%, #f0f0f0);
+            background-size: 40px 40px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bdc3c7;
+            font-size: 3em;
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid #bdc3c7;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+        }
+
+        .btn-secondary:hover {
+            background: #95a5a6;
+            color: white;
+            border-color: #95a5a6;
+        }
+
+        .footer-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px 60px;
+        }
+
+        .footer-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .footer-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .description-box {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-image {
+            width: 250px;
+            min-width: 250px;
+            height: 400px;
+            background: linear-gradient(135deg, #e0e0e0 25%, #f0f0f0 25%, #f0f0f0 50%, #e0e0e0 50%, #e0e0e0 75%, #f0f0f0 75%, #f0f0f0);
+            background-size: 40px 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bdc3c7;
+            font-size: 2em;
+        }
+
+        .description-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .description-text {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 2;
+        }
+
+        .contact-box {
+            border: 2px solid #bdc3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-bar">
+    </div>
+
+    <div class="header">
+        <div class="logo">Lolatelone</div>
+        <div class="header-content">
+            <div class="info-section">
+                <h3>Section 1</h3>
+                <p>Some default text to fill some space, and something more so there is more text</p>
+            </div>
+            <div class="info-section">
+                <h3>Section 2</h3>
+                <p>Some default text to fill some space, and something more so there is more text</p>
+            </div>
+            <div class="info-section">
+                <h3>Section 1</h3>
+                <p>Some default text to fill some space, and something more so there is more text</p>
+            </div>
+            <div class="search-box">
+                <h3>Search</h3>
+                <input type="text" class="search-input" placeholder="Search">
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="table-of-contents">
+            <h2>Table of contents</h2>
+            <p>Contents of the website such as categories of the products, will be in the form of clickable buttons</p>
+            <div class="category-buttons">
+                <button class="category-btn">Button</button>
+                <button class="category-btn">Button 2</button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">📦</div>
+                <div class="product-info">
+                    <h3 class="product-name">Product name</h3>
+                    <p class="product-description">Item description</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary">Buy this item</button>
+                        <button class="btn btn-secondary">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">📦</div>
+                <div class="product-info">
+                    <h3 class="product-name">Product name</h3>
+                    <p class="product-description">Item description</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary">Buy this item</button>
+                        <button class="btn btn-secondary">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <div class="footer-box description-box">
+            <div class="footer-image">🖼️</div>
+            <div class="description-content">
+                <h3>Description</h3>
+                <p class="description-text">The space below will be filled with information about the client.</p>
+                <p class="description-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p class="description-text">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <div class="contact-box">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                    <input type="tel" placeholder="Phone number" required>
+                    <input type="text" placeholder="Instagram" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Some default text to fill some space, and something more so there is more text" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
