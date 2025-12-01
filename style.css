@@ -70,6 +70,7 @@ a{
     align-items: center;
     margin-top: 50px;
 }
+unused
 */
 
 .basic-container{
@@ -89,7 +90,7 @@ a{
 }
 
 .img-container{
-    width: 400px;
+    width: 380px;
 }
 
 .img-container img{
@@ -129,9 +130,6 @@ a{
     height: 100%;
     box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
-/* .table-container{
-    width: 60%;
-} */
 .contact-container{
     width: 320px;
 }
@@ -170,6 +168,10 @@ a{
     height: 25px;
     cursor: pointer;
 }
+
+/* ========items css======== */
+
+/* nothing here yet */
 
 /* small devices usable */
 @media only screen and (max-width: 750px) {
@@ -220,6 +222,7 @@ a{
     gap: 10px;
     font-size: 20px;
     padding: 0% 20px;
+    justify-content: space-between;
 }
 .header-text{
     padding-left: 10px;
