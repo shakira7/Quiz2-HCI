@@ -169,6 +169,38 @@ unused
     cursor: pointer;
 }
 
+.browser-bar {
+    background: #e0e0e0ec;
+    padding: 12px 20px;
+    align-items: center;
+    margin-top: 1px;
+}
+
+.items-container{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px 2%;
+}
+.product-available{
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+    margin: 20px 10px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+.product-available img{
+    width: 250px;
+    height: 260px;
+}
+
 /* ========items css======== */
 
 /* nothing here yet */
