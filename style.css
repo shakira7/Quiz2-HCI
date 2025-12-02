@@ -63,16 +63,6 @@ a{
     font-size: 32px; /*the bigest font before the padding/margin breaks*/
 }
 
-/*
-.browser-bar {
-    background: #e0e0e0ec;
-    padding: 12px 20px;
-    align-items: center;
-    margin-top: 50px;
-}
-unused
-*/
-
 .basic-container{
     padding: 20px 40px;
     background-color: white;
@@ -130,6 +120,13 @@ unused
     height: 100%;
     box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
+.img-container-offers{
+    width: 500px;
+}
+
+.img-container-offers img{
+    width: 100%;
+}
 .contact-container{
     width: 320px;
 }
@@ -169,6 +166,8 @@ unused
     cursor: pointer;
 }
 
+
+/* ========items css======== */
 .browser-bar {
     background: #e0e0e0ec;
     padding: 12px 20px;
@@ -200,10 +199,6 @@ unused
     width: 250px;
     height: 260px;
 }
-
-/* ========items css======== */
-
-/* nothing here yet */
 
 /* small devices usable */
 @media only screen and (max-width: 750px) {
