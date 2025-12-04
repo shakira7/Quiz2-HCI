@@ -63,6 +63,7 @@ a{
     font-size: 32px; /*the bigest font before the padding/margin breaks*/
 }
 
+
 .basic-container{
     padding: 20px 40px;
     background-color: white;
@@ -128,7 +129,7 @@ a{
     width: 100%;
 }
 .contact-container{
-    width: 320px;
+    /* nothing */
 }
 .contact-box{
     border: #333 solid 1px;
@@ -144,12 +145,12 @@ a{
     height: 20px;
     border-radius: 5px;
     border: 1px solid;
-
+    width: 280px;
 }
 .contact-form textarea{
     margin: 3px;
     height: 35px;
-    width: 90%;
+    width: 95%;
     border-radius: 5px;
     border: 1px solid black;
 }
@@ -167,6 +168,7 @@ a{
 }
 
 /* ========items css======== */
+
 .browser-bar {
     background: #e0e0e0ec;
     padding: 12px 20px;
@@ -254,6 +256,16 @@ a{
 .header-text p{
     font-size: 15px;
 }
+.containers{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.img-container-offers{
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
 }
 
 @media only screen and (max-width: 450px) {
@@ -281,5 +293,8 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.contact-form input{
+    width: 95%;
 }
 }
