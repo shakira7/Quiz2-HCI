@@ -4,7 +4,7 @@ Student ID: 2902708363
 
 Reposity link: [click here](https://github.com/shakira7/Quiz2-HCI/)
 
-Pages link: 
+Pages link: [click here](https://shakira7.github.io/Quiz2-HCI/payment.html)
 
 # PART A:
 
