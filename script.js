@@ -98,8 +98,6 @@ function openPopup(element) {
     document.getElementById("popupTitle").innerText = title;
     document.getElementById("popupPrice").innerText = price;
     document.getElementById("popupDetails").innerHTML = desc;
-    
-    // Show popup
     popup.style.display = "block";
 }
 
@@ -118,10 +116,8 @@ function changePopupQty(change) {
    4. SHOPPING CART LOGIC (With Storage)
    ========================================= */
 
-// Load from Storage or start empty
 let cart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
 
-// Save to Storage Helper
 function saveCart() {
     sessionStorage.setItem("shoppingCart", JSON.stringify(cart));
 }
@@ -158,7 +154,7 @@ function addToCart() {
         cart.push(product);
     }
 
-    saveCart(); // <--- SAVE
+    saveCart(); 
     updateCartDisplay();
     closePopup(); 
     openCart();   
@@ -171,7 +167,7 @@ function changeCartQty(id, change) {
         if (item.qty <= 0) {
             removeFromCart(id);
         } else {
-            saveCart(); // <--- SAVE
+            saveCart(); 
             updateCartDisplay();
         }
     }
@@ -179,7 +175,7 @@ function changeCartQty(id, change) {
 
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
-    saveCart(); // <--- SAVE
+    saveCart(); 
     updateCartDisplay();
 }
 
@@ -188,7 +184,6 @@ function updateCartDisplay() {
     let totalElement = document.querySelector(".cart-footer .total span:last-child");
     let countElement = document.querySelector(".cart-header h2");
 
-    // Safety check if cart HTML doesn't exist on page
     if (!cartItemsContainer) return;
 
     cartItemsContainer.innerHTML = "";
@@ -253,13 +248,10 @@ if (scrollContainer) {
    ========================================= */
 
 function checkout() {
-    // Safety Check: Is the cart empty?
     if (cart.length === 0) {
         alert("Your cart is empty! Add some cute stuff first. :3");
         return; 
     }
-    
-    // Go to Payment Page
     window.location.href = 'payment.html';
 }
 
@@ -271,31 +263,25 @@ function checkout() {
 
 function processOrder(event) {
     event.preventDefault(); 
-    
-    // YOUR URL
+
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz5zNxM41vYmey7FLQ3J_B4BGVQA19pPB94EUMz-FX3vSKTByM1JyWUKJgGspAn1DAC/exec';
 
     const form = document.getElementById('paymentForm');
     const submitBtn = document.querySelector('.pay-btn');
 
-    // Show Loading
     submitBtn.innerText = "Processing...";
     submitBtn.disabled = true;
 
-    // Create Data
     let data = new FormData(form);
 
-    // Add Cart Details
     let orderDetails = cart.map(item => `${item.title} (x${item.qty})`).join(", ");
     
-    // SAFETY CHECK: If summaryTotal doesn't exist, calculate it now
     let totalElement = document.getElementById("summaryTotal");
     let totalPriceString = "IDR 0";
     
     if (totalElement) {
         totalPriceString = totalElement.innerText;
     } else {
-        // Fallback calculation
         let calcTotal = 0;
         cart.forEach(item => {
             let cleanPrice = parseInt(item.price.replace(/[^0-9]/g, ''));
@@ -307,7 +293,6 @@ function processOrder(event) {
     data.append("Order Details", orderDetails);
     data.append("Total Price", totalPriceString);
 
-    // Send Data
     const queryString = new URLSearchParams(data).toString();
 
     fetch(`${scriptURL}?${queryString}`, { method: "GET", mode: "no-cors" })
@@ -334,13 +319,11 @@ function processOrder(event) {
 function calculateHiddenTotal() {
     let totalPrice = 0;
     
-    // Loop through cart to calculate total
     cart.forEach(item => {
         let cleanPrice = parseInt(item.price.replace(/[^0-9]/g, ''));
         totalPrice += (cleanPrice * item.qty);
     });
 
-    // Update the hidden HTML element
     let totalElement = document.getElementById("summaryTotal");
     if (totalElement) {
         totalElement.innerText = "IDR " + totalPrice.toLocaleString('en-US');
@@ -351,7 +334,7 @@ function calculateHiddenTotal() {
 
 
 /* =========================================
-   9. HAMBURGER MENU LOGIC (Fixed)
+   9. HAMBURGER MENU LOGIC 
    ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -360,10 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (hamburger && navMenu) {
         hamburger.addEventListener("click", () => {
-            // 1. Toggle Menu
             navMenu.classList.toggle("active");
-
-            // 2. Toggle Icon
             const icon = hamburger.querySelector("i");
             if (navMenu.classList.contains("active")) {
                 icon.classList.remove("bx-menu");
@@ -374,7 +354,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 3. Close when clicking a link
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("active");
@@ -385,3 +364,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+
+
+
