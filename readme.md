@@ -1,6 +1,9 @@
 Full Name: Shakira Hayau Mazaya Gutomo
+
 Student ID: 2902708363
+
 Reposity link: [click here](https://github.com/shakira7/Quiz2-HCI/)
+
 Pages link: 
 
 # PART A:
