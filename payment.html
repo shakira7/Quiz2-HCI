@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotalone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="x-icon" href="pic/icon.png" />
+    <link href='https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header class="main-nav">
+        <div class="client-logo">
+            <img src="pic/icon.png">
+            <h1>LOLATELONE</h1>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- what i added -->
+
+        <section class="breadcrumb">
+            <a href="products.html">
+                <i class='bx bx-chevron-left'></i> 
+                <p>Back to Products</p>
+            </a>
+        </section>
+
+        <section class="forms-section">
+            <form id="paymentForm" onsubmit="processOrder(event)">
+
+                <div class="form-group">
+                    <h3>Customer Details</h3>
+                    <label>Full Name</label>
+                    <input type="text" name="Name" placeholder="Lolatelone" required>
+
+                    <label>Email Address</label>
+                    <input type="email" name="Email" placeholder="you@email.com" required>
+
+                    <label>Phone Number</label>
+                    <input type="tel" name="Phone" placeholder="0812xxxxxxx" required>
+                </div>
+
+                <div class="form-group"> 
+                    <button type="submit" class="pay-btn">Confirm Payment</button>
+                </div> 
+            </form>
+            
+            <div id="hiddenSummary" style="display:none;">
+                <span id="summaryTotal">IDR 0</span>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // AI generated: 
+        calculateHiddenTotal();
+    </script>
+
+</body>

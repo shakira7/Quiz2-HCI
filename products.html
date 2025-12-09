@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotalone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="x-icon" href="icon.png" />
+    <link href='https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!--HEADER-->
+    <header class="main-nav">
+        <div class="client-logo">
+            <img src="pic/icon.png" alt="Logo">
+            <h1>LOLATELONE</h1>
+        </div>
+
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html" class="nav-btn">Home</a></li>
+                <li><a href="products.html" class="nav-btn active">Products</a></li>
+                <li>
+                    <a href="#" class="nav-btn" onclick="openCart(); return false;">
+                        <i class='bx bx-cart'></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="hamburger">
+            <i class='bx  bx-menu'></i>  
+        </button>
+
+    </header>
+
+
+
+
+    <!--MAIN-->
+    <main>
+        <section class="product-section">
+            <div class="product-container">
+
+                <!-- POP UP -->
+
+                <div id="miniPopup" class="mini-popup">
+        
+                    <button class="close-btn" onclick="closePopup()">
+                        <i class='bx bx-x arrow-back'></i>
+                    </button>
+
+                    <div class="popup-content">
+                        <div class="popup-img-container">
+                            <img id="popupImg" src="" alt="">
+                        </div>
+                        <div class="popup-info">
+                            <h2 id="popupTitle">Product Name</h2>
+                            <h3 id="popupPrice">$25.00</h3>
+                            <div id="popupDetails">...</div>
+
+                            <div class="qty-selector">
+                                <button onclick="changePopupQty(-1)">-</button>
+                                <span id="popupQty">1</span> <button onclick="changePopupQty(1)">+</button>
+                            </div>
+
+                            <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <nav class="category-nav">
+                    <ul>
+                        <li><button class="filter-btn active" onclick="filterSelection('totebag')">Tote Bags</button></li>
+                        <li><button class="filter-btn" onclick="filterSelection('tumblr')">Tumblers</button></li>
+                        <li><button class="filter-btn" onclick="filterSelection('keychain')">Keychains</button></li>
+                        <li><button class="filter-btn" onclick="filterSelection('candle')">Candles</button></li>
+                    </ul>
+                </nav>
+
+                <div class="product-grid">
+
+                    <!-- TOTEBAG -->
+                    <article class="lookbook-item totebag eid-cookies" onclick="openPopup(this)">
+                        <img src="./product_photo/tote1.png">
+                        <h3>Eid Cookies Tote</h3>
+                        <p>Tote bag with Ramadhan cookies!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 140,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lookbook-item totebag takjil" onclick="openPopup(this)">
+                        <img src="./product_photo/tote2.png">
+                        <h3>Takjil Tote</h3>
+                        <p>Tote bag with Ramadhan meals!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 140,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lookbook-item totebag yoga-poses" onclick="openPopup(this)">
+                        <img src="./product_photo/tote3.png">
+                        <h3>Yoga Poses Tote</h3>
+                        <p>Tote bag with Yoga Poses!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 140,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lookbook-item totebag wfy-life" onclick="openPopup(this)">
+                        <img src="./product_photo/tote4.jpg">
+                        <h3>WYF Life Tote</h3>
+                        <p>Find your balance.</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 130,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TUMBLR -->
+                    <article class="lookbook-item tumblr eid-cookies" onclick="openPopup(this)">
+                        <img src="./product_photo/tumblr1.png">
+                        <h3>Eid Tumbler</h3>
+                        <p>Keep drinks cold.</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 130,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lookbook-item tumblr christmas" onclick="openPopup(this)">
+                        <img src="./product_photo/tumblr2.jpg">
+                        <h3>Xmas Tumbler</h3>
+                        <p>Festive sips.</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 130,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- KEYCHAIN -->
+                    <article class="lookbook-item keychain christmas" onclick="openPopup(this)">
+                        <img src="./product_photo/keychain.jpg">
+                        <h3>Christmas Keychain</h3>
+                        <p>Gingerbread, snowman, and more designs!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 50,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="lookbook-item keychain christmas-tree" onclick="openPopup(this)">
+                        <img src="./product_photo/keychain.jpg">
+                        <h3>Christmas Tree Keychain</h3>
+                        <p>Cute christmas tree to hang on your bag!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 45,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CANDLE -->
+                    <article class="lookbook-item candle gingerbread 100gr" onclick="openPopup(this)">
+                        <img src="./product_photo/candle.jpg">
+                        <h3>Gingerbread Candle 100gr</h3>
+                        <p>Smells like home!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 95,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lookbook-item candle 200gr" onclick="openPopup(this)">
+                        <img src="./product_photo/candle.jpg">
+                        <h3>Gingerbread Candle 200gr</h3>
+                        <p>Bigger, and smells like home!</p>
+                        <div class="full-details" style="display:none">
+                            <span class="price-data">IDR 135,000</span>
+                            <div class="desc-data">
+                                <p>Made from high-quality canvas.</p>
+                                <p>Size: 40cm x 35cm</p>
+                                <p>Washable: Yes</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+        
+
+
+
+
+        <!-- CART -->
+        <section class="cart-section">
+            <div class="cart-overlay" onclick="closeCart()"></div> 
+            <div id="cartSidebar" class="cart-sidebar">
+                <div class="cart-header">
+                    <h2>Your Cart (0)</h2>
+                    <span class="close-cart" onclick="closeCart()">&times;</span>
+                </div>
+                
+                <div class="cart-items">
+                    <p class="empty-msg">Your cart is empty.</p>
+                </div>
+
+                <div class="cart-footer">
+                    <div class="total">
+                        <span>Subtotal:</span>
+                        <span>IDR 0</span>
+                    </div>
+                    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>2025 @ Lolatelone</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+    
+
+
+</body>
+</html>

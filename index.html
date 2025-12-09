@@ -5,56 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotalone</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" type="x-icon" href="icon.png" />
+    <link rel="shortcut icon" type="x-icon" href="pic/icon.png" />
     <link href='https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-
-<!--navigation (copy this to other html)-->
-<div class="main-nav">
-    <div><h1>Lotalone</h1></div>
-    <nav class="nav-links">
-    <ul>
-        <li><a href="#" class="nav-btn" style="background-color: rgb(184, 184, 184);">Home</a></li>
-        <li><a href="items.html" class="nav-btn">Items</a></li>
-        <li><a href="cart.html" class="cart-btn"><i class='bx  bx-cart'></i></a></li>
-    </ul>
-    </nav>
-</div>
-
-<!--header section-->
-<!-- <div class="browser-bar"></div> (grey style bar) (unused)-->
-
-<div class="basic-container"><!--about section-->
-    <div class="about-section">
-        <div class="img-container"><img src="logo.png"></div>
-        <div class="header-text">
-            <h3>About us</h3>
-            <p>Our Store was first founded to celebrate our passion for doodles. We hope our doodles can bring joy & fond memories to our customers</p>
+    <!--HEADER-->
+    <header class="main-nav">
+        <div class="client-logo">
+            <img src="pic/icon.png">
+            <h1>LOLATELONE</h1>
         </div>
-    </div>
-</div>
+        <nav class="nav-links" id="mobile-menu">
+            <ul>
+                <li><a href="index.html" class="nav-btn active">Home</a></li>
+                <li><a href="products.html" class="nav-btn">Products</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu">
+            <i class='bxr  bx-menu'></i> 
+        </button>
+    </header>
 
-<div class="containers">
-    <div class="img-container-offers">
-        <a href="items.html"><img src="offers.png"></a>
-    </div>
-    <div class="contact-container">
-        <h2>Contact Us</h2>
-        <div class="contact-box">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
-                <input type="tel" placeholder="Phone number" required>
-                <input type="text" placeholder="Instagram" required>
-                <input type="email" placeholder="Email" required>
-                <label><textarea placeholder="input messages here" required></textarea></label>
-            <button>Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
 
-<!-- gap to apreciate the box shadow -->
-<div style="height: 20px;"></div>
+    <!-- MAIN -->
+    <main>
+        <!-- hero banner -->
+        <section class="hero-container">
+            <div class="hero-img">
+                <img src="pic/outfit1.png" class="img-container">
+            </div>
+            <div class="hero-about">
+                <h1>ABOUT US</h1>
+                <p>Our Store was first founded to celebrate our passion for doodles. <br> We hope our doodles can bring joy & fond memories to our customers! </p>
+            </div>
+        </section>
+        
+        <!-- what we sell -->
+        <section class="selling-offers">
+            <h1>What We Sell</h1>
+            <div class="selling-items">
+                <div class="preview totebag-pv"> 
+                    <h3>Big Totebags</h3>
+                    <img src="product_photo/tote1.png">
+                </div>
+                <div class="preview tumblr-pv">
+                    <h3>Safe Tumblers</h3>
+                    <img src="product_photo/tumblr1.png">
+                </div>
+                <div class="preview keychain-pv">
+                    <h3>Cute Keychains</h3>
+                    <img src="product_photo/keychain.jpg">
+                </div>
+                <div class="preview candle-pv">
+                    <h3>Comforting Candles</h3>
+                    <img src="product_photo/candle.jpg">
+                </div>
+            </div>
+        </section>
+        
+    </main>
 
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>2025 @ Lolatelone</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
